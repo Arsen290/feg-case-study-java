@@ -50,3 +50,17 @@ public void setRevenue(double revenue) {
     this.revenue = revenue;
 }
 ```
+public class App
+```
+public static void main(String[] args) throws IOException, CsvException {
+        Scanner sc = new Scanner(System.in);
+        String file = sc.nextLine();
+        String filePath = "D:\\Java kurz\\Java projects\\FEG_CaseStudy_Java\\src\\main\\customers\\" + file + (".csv");
+        try (CSVReader reader = new CSVReaderBuilder(new FileReader(filePath)).withSkipLines(1).build()) {
+                String[] lineInArray;
+                while ((lineInArray = reader.readNext()) != null) {
+                        System.out.println(lineInArray[0]+":" + " $"+ lineInArray[1].trim() );
+                }
+        }
+}
+```
