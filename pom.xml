@@ -31,4 +31,16 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>feg.assigment.app.App</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
