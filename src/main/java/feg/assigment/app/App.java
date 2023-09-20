@@ -23,6 +23,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 public class App {
     public static void main(String[] args) throws IOException, CsvException {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Write the name of the file in the customers folder:");
         String file = sc.nextLine();
         // Replace with the path to your CSV file
         String filePath = "./src/customers/" + file + (".csv");

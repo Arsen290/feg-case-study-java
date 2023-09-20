@@ -1,4 +1,17 @@
 package feg.assigment;
 
-public class AppTest {
-}
+import feg.assigment.app.App;
+import org.junit.jupiter.api.Test;
+    public class AppTest {
+        @Test
+        public void testParseCSV() {
+        }
+
+        @Test
+        public void testCalculateRevenue() {
+        }
+
+        @Test
+        public void testPrintReport() {
+        }
+    }
