@@ -16,6 +16,7 @@ public class CustomerTest {
     public void testGetRevenue() {
         Customer customer = new Customer("Honza Vins", 200);
         assertEquals(200.0, customer.getRevenue(), 0.01);
+
     }
 
 }
