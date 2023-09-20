@@ -1,6 +1,8 @@
 package feg.assigment.app;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.opencsv.CSVParser;
@@ -12,7 +14,6 @@ import com.opencsv.exceptions.CsvException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -35,21 +36,29 @@ public class App {
         System.out.print("\n");
 
         parseCSV(filePath);
+        calculateRevenue(parseCSV(filePath));
     }
 
     //parses the CSV file and returns a list
     private static List<Customer> parseCSV(String filename) throws IOException, CsvException {
 
-        List<Customer> customers = new ArrayList<>();
+        List<Customer> listCustomers = new ArrayList<>();
 
-        customers = new CsvToBeanBuilder(new FileReader(filename))
+        listCustomers = new CsvToBeanBuilder(new FileReader(filename))
                 .withSkipLines(1)
                 .withType(Customer.class)
                 .build()
                 .parse();
 
-        customers.forEach(System.out::println);
-        return customers;
+        return listCustomers;
+    }
+    private static Map<String, Double> calculateRevenue(List<Customer> customers){
+        Map<String, Double> mapCustomers = new HashMap<>();
+        for (Customer customer : customers) {
+            mapCustomers.put(customer.getName(), customer.getRevenue());
+        }
+
+        return mapCustomers;
     }
 
 }
