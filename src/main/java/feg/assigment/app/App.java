@@ -37,15 +37,14 @@ public class App {
                 double revenue = Double.parseDouble(lineInArray[1].trim());
 
                 // Create string the customer report and save it in output.csv
-                String customerReport = name+":" + " $"+ revenue + "\n";
+                String customerReport = name + ":" + " $" + revenue + "\n";
                 writer.write(customerReport);
-                System.out.print(customerReport);
             }
         }
-        System.out.print("\n");
 
         parseCSV(filePath);
         calculateRevenue(parseCSV(filePath));
+        printReport(calculateRevenue(parseCSV(filePath)));
     }
 
     //parses the CSV file and returns a list
@@ -61,13 +60,19 @@ public class App {
 
         return listCustomers;
     }
+
     //calculates the revenue for each customer and returns a map of customer names to revenue values
-    private static Map<String, Double> calculateRevenue(List<Customer> customers){
+    private static Map<String, Double> calculateRevenue(List<Customer> customers) {
         Map<String, Double> mapCustomers = new HashMap<>();
         for (Customer customer : customers) {
             mapCustomers.put(customer.getName(), customer.getRevenue());
         }
         return mapCustomers;
+    }
+
+    //prints the customer report to the console
+    private static void printReport(Map<String, Double> revenueMap){
+        revenueMap.forEach((name,revenue)-> System.out.println(name + ":" + " $" + revenue));
     }
 
 }
