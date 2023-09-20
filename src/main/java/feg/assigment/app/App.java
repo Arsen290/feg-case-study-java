@@ -24,6 +24,7 @@ public class App {
      * @param args Command-line arguments
      * @throws IOException  If there is an issue reading the CSV file.
      * @throws CsvException If there is an issue parsing the CSV data
+     *
      */
     public static void main(String[] args) throws IOException, CsvException {
         Scanner sc = new Scanner(System.in);
