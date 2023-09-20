@@ -20,8 +20,9 @@ import com.opencsv.bean.CsvToBeanBuilder;
 public class App {
     /**
      * reads the CSV file and outputs the customer report
+     *
      * @param args Command-line arguments
-     * @throws IOException If there is an issue reading the CSV file.
+     * @throws IOException  If there is an issue reading the CSV file.
      * @throws CsvException If there is an issue parsing the CSV data
      */
     public static void main(String[] args) throws IOException, CsvException {
@@ -53,6 +54,7 @@ public class App {
 
     /**
      * parses the CSV file and returns a list of Customer objects
+     *
      * @param filename , name of the file in customers folder
      * @return listCustomers, list of objects customers
      * @throws IOException
@@ -75,6 +77,7 @@ public class App {
 
     /**
      * calculates the revenue for each customer and returns a map of customer names to revenue values
+     *
      * @param customers, list of customers
      * @return mapCustomers, consists of key - name of customer and value - revenue
      */
@@ -90,7 +93,8 @@ public class App {
 
     /**
      * prints the customer report to the console
-     * @param revenueMap
+     *
+     * @param revenueMap A map of customer names to revenue values.
      */
     private static void printReport(Map<String, Double> revenueMap) {
         revenueMap.forEach((name, revenue) -> System.out.println(name + ":" + " $" + revenue));
