@@ -2,6 +2,7 @@ package feg.assigment;
 
 import feg.assigment.app.Customer;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerTest {

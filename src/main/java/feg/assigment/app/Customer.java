@@ -1,4 +1,5 @@
 package feg.assigment.app;
+
 import com.opencsv.bean.CsvBindByPosition;
 
 public class Customer {
@@ -8,13 +9,15 @@ public class Customer {
 
     @CsvBindByPosition(position = 1)
     private double revenue;
+
     public Customer() {
     }
 
-    public Customer (String name,double revenue){
-            this.name=name;
-            this.revenue=revenue;
+    public Customer(String name, double revenue) {
+        this.name = name;
+        this.revenue = revenue;
     }
+
     public String getName() {
         return name;
     }
