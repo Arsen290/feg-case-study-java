@@ -1,5 +1,6 @@
 package feg.assigment.app;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,10 +28,18 @@ public class App {
         String filePath = "./src/customers/" + file + (".csv");
 
         //reads the CSV file and outputs the customer report
-        try (CSVReader reader = new CSVReaderBuilder(new FileReader(filePath)).withSkipLines(1).build()) {
+        try (FileWriter writer = new FileWriter("output.csv");
+             CSVReader reader = new CSVReaderBuilder(new FileReader(filePath)).withSkipLines(1).build()) {
+
             String[] lineInArray;
             while ((lineInArray = reader.readNext()) != null) {
-                System.out.println(lineInArray[0]+":" + " $"+ lineInArray[1].trim() );
+                String name = lineInArray[0];
+                double revenue = Double.parseDouble(lineInArray[1].trim());
+
+                // Create string the customer report and save it in output.csv
+                String customerReport = name+":" + " $"+ revenue + "\n";
+                writer.write(customerReport);
+                System.out.print(customerReport);
             }
         }
         System.out.print("\n");
@@ -52,12 +61,12 @@ public class App {
 
         return listCustomers;
     }
+    //calculates the revenue for each customer and returns a map of customer names to revenue values
     private static Map<String, Double> calculateRevenue(List<Customer> customers){
         Map<String, Double> mapCustomers = new HashMap<>();
         for (Customer customer : customers) {
             mapCustomers.put(customer.getName(), customer.getRevenue());
         }
-
         return mapCustomers;
     }
 
